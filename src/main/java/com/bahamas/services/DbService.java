@@ -1,6 +1,5 @@
 package com.bahamas.services;
 
-import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,7 @@ public class DbService {
 
 	public void instanceDataBase() {
 
-		DateTimeFormatter fomatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
 
 		ClientInvoice c1 = new ClientInvoice(1234, "bob", "Bob@bob.com");
 
