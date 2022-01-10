@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class ClientInvoice implements Serializable {
 
@@ -23,6 +25,7 @@ public class ClientInvoice implements Serializable {
 	private String name;
 	private String email;
 	
+	@JsonBackReference
 	@ManyToMany
 	@JoinTable(name="CLI_INV", joinColumns = @JoinColumn(name="clientInvoice_id"),
 	inverseJoinColumns = @JoinColumn(name="invoice_id")

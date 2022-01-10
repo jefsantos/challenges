@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 public class Invoice implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -18,9 +20,9 @@ public class Invoice implements Serializable {
 	@Id
 //	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer invoiceId;
-	private Integer invoiceNumber;
+//	private Integer invoiceNumber;
 
-	
+	@JsonManagedReference
 	@ManyToMany(mappedBy = "invoices")
 	private List<ClientInvoice> client = new ArrayList<>();
 
@@ -28,10 +30,9 @@ public class Invoice implements Serializable {
 
 	}
 
-	public Invoice(Integer invoiceId, Integer invoiceNumber) {
+	public Invoice(Integer invoiceId) {
 		super();
 		this.invoiceId = invoiceId;
-		this.invoiceNumber = invoiceNumber;
 	}
 
 	public List<ClientInvoice> getClient() {
@@ -50,13 +51,6 @@ public class Invoice implements Serializable {
 		this.invoiceId = invoiceId;
 	}
 
-	public Integer getInvoiceNumber() {
-		return invoiceNumber;
-	}
-
-	public void setInvoiceNumber(Integer invoiceNumber) {
-		this.invoiceNumber = invoiceNumber;
-	}
 
 	@Override
 	public int hashCode() {

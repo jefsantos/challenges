@@ -21,9 +21,9 @@ public class DbService {
 
 	public void instanceDataBase() {
 
-		Invoice inv1 = new Invoice(1234, 1234);
+		Invoice inv1 = new Invoice(1234);
 
-
+	
 		ClientInvoice c1 = new ClientInvoice(null, "bob", "Bob@bob.com");
 
 		
