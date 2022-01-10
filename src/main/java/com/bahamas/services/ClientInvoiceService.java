@@ -21,6 +21,12 @@ public class ClientInvoiceService {
 		 
 		 return obj.orElse(null);
 	}
+
+
+	public ClientInvoice create(ClientInvoice obj) {
+		obj.setId_fiscal(null);
+		return repo.save(obj);
+	}
 	
 
 }

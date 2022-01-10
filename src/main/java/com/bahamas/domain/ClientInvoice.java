@@ -14,7 +14,7 @@ public class ClientInvoice implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id_fiscal;
+	private Integer id_fiscal;
 	private String name;
 	private String email;
 	
@@ -23,16 +23,16 @@ public class ClientInvoice implements Serializable {
 	}
 	
 	
-	public ClientInvoice(int id_fiscal, String name, String emai) {
+	public ClientInvoice(Integer id_fiscal, String name, String emai) {
 		super();
 		this.id_fiscal = id_fiscal;
 		this.name = name;
 		this.email = emai;
 	}
-	public int getId_fiscal() {
+	public Integer getId_fiscal() {
 		return id_fiscal;
 	}
-	public void setId_fiscal(int id_fiscal) {
+	public void setId_fiscal(Integer id_fiscal) {
 		this.id_fiscal = id_fiscal;
 	}
 	public String getName() {
