@@ -1,11 +1,16 @@
 package com.bahamas.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
 public class ClientInvoice implements Serializable {
@@ -18,6 +23,12 @@ public class ClientInvoice implements Serializable {
 	private String name;
 	private String email;
 	
+	@ManyToMany
+	@JoinTable(name="CLI_INV", joinColumns = @JoinColumn(name="clientInvoice_id"),
+	inverseJoinColumns = @JoinColumn(name="invoice_id")
+			)
+	private List<Invoice> invoices = new ArrayList<>();
+	
 	public ClientInvoice() {
 		
 	}
@@ -29,6 +40,17 @@ public class ClientInvoice implements Serializable {
 		this.name = name;
 		this.email = emai;
 	}
+	
+	public List<Invoice> getInvoices() {
+		return invoices;
+	}
+
+
+	public void setInvoices(List<Invoice> invoices) {
+		this.invoices = invoices;
+	}
+
+	
 	public Integer getId_fiscal() {
 		return id_fiscal;
 	}
@@ -50,9 +72,37 @@ public class ClientInvoice implements Serializable {
 
 
 	@Override
-	public String toString() {
-		return "Client [id_fiscal=" + id_fiscal + "]";
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id_fiscal == null) ? 0 : id_fiscal.hashCode());
+		return result;
 	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ClientInvoice other = (ClientInvoice) obj;
+		if (id_fiscal == null) {
+			if (other.id_fiscal != null)
+				return false;
+		} else if (!id_fiscal.equals(other.id_fiscal))
+			return false;
+		return true;
+	}
+
+
+
+
+
+
+
 
 	
 	
