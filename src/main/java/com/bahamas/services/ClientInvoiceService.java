@@ -27,6 +27,5 @@ public class ClientInvoiceService {
 		obj.setId_fiscal(null);
 		return repo.save(obj);
 	}
-	
 
 }

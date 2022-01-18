@@ -11,11 +11,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import com.bahamas.domain.ClientInvoice;
 import com.bahamas.repositories.ClientInvoiceRepo;
 
-
 @SpringBootApplication
-public class BahamasApplication implements CommandLineRunner{
-	
-
+public class BahamasApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BahamasApplication.class, args);
@@ -23,9 +20,7 @@ public class BahamasApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		
 
-		
 	}
 
 }

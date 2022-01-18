@@ -28,22 +28,15 @@ public class InvoiceController {
 		return ResponseEntity.ok().body(obj);
 
 	}
-	
-	
+
 	@PostMapping
-	public ResponseEntity<Invoice> create(@RequestBody Invoice obj){
+	public ResponseEntity<Invoice> create(@RequestBody Invoice obj) {
 		obj = repoService.create(obj);
-		URI uri = ServletUriComponentsBuilder
-				.fromCurrentRequestUri().path("/{id}")
-				.buildAndExpand(obj.getInvoiceId ()).toUri();
-		
+		URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri().path("/{id}").buildAndExpand(obj.getInvoiceId())
+				.toUri();
+
 		return ResponseEntity.created(uri).body(obj);
-		
-		
-		
+
 	}
-	
-	
-	
 
 }
