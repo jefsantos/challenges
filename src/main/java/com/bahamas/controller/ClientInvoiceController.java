@@ -26,7 +26,6 @@ public class ClientInvoiceController {
 	public ResponseEntity<ClientInvoice> findById(@PathVariable Integer id) {
 		ClientInvoice obj = repoService.findById(id);
 		return ResponseEntity.ok().body(obj);
-
 	}
 
 	@PostMapping
